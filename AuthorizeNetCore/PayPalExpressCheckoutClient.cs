@@ -1,4 +1,5 @@
 ﻿using AuthorizeNetCore.Models;
+using AuthorizeNetCore.Models.Authentication;
 
 namespace AuthorizeNetCore
 {

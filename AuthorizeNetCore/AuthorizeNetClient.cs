@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using AuthorizeNetCore.Models;
+using AuthorizeNetCore.Models.Authentication;
 using AuthorizeNetCore.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -30,7 +31,7 @@ namespace AuthorizeNetCore
             this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<string> TestAuthentication()
+        public async Task<AuthenticationTestResponse> TestAuthentication()
         {
             var content = new StringContent(content: JsonConvert.SerializeObject(merchantAuthentication), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
 
@@ -38,10 +39,7 @@ namespace AuthorizeNetCore
 
             var json = await response.Content.ReadAsStringAsync();
 
-            //todo uncomment when models are correctly added.
-            //return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<>(json) : null;
-
-            return json;
+            return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticationTestResponse>(json) : null;
         }
 
         protected bool ValidateJson(string json) {

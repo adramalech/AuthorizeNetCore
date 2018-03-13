@@ -1,5 +1,6 @@
 ﻿using AuthorizeNetCore;
 using AuthorizeNetCore.Models;
+using AuthorizeNetCore.Models.Authentication;
 using Xunit;
 
 namespace AuthorizeNetCoreTest
@@ -20,7 +21,10 @@ namespace AuthorizeNetCoreTest
 
             var result = client.TestAuthentication().Result;
 
-            Assert.True(!string.IsNullOrEmpty(result));
+            Assert.True(
+                result != null && result.Messages != null && result.Messages.Message != null &&
+                !string.IsNullOrEmpty(result.Messages.ResultCode) && result.Messages.ResultCode == "Ok" && !string.IsNullOrEmpty(result.Messages.Message.Code)
+            );
         }
     }
 }
