@@ -8,4 +8,16 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\PaymenTransactions\" />
+    <Folder Include="Models\VisaCheckout\" />
+    <Folder Include="Models\PayPalExpressCheckout\" />
+    <Folder Include="Models\FraudManagement\" />
+    <Folder Include="Models\RecurringBilling\" />
+    <Folder Include="Models\CustomerProfile\" />
+    <Folder Include="Models\TransactionReporting\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\PaymenTransactions\ChargeCreditCardRequest.cs" />
+  </ItemGroup>
 </Project>

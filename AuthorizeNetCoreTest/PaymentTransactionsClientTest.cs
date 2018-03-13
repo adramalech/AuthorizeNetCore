@@ -4,7 +4,7 @@ using Xunit;
 
 namespace AuthorizeNetCoreTest
 {
-    public class PaymentTransactionsClientTest : AuthorizeNetClientTest
+    public class PaymentTransactionsClientTest
     {
     }
 }

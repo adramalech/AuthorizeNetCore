@@ -4,7 +4,7 @@ using Xunit;
 
 namespace AuthorizeNetCoreTest
 {
-    public class PayPalExpressCheckoutClientTest : AuthorizeNetClientTest
+    public class PayPalExpressCheckoutClientTest
     {
     }
 }

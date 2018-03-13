@@ -6,21 +6,19 @@ namespace AuthorizeNetCoreTest
 {
     public class AuthorizeNetClientTest
     {
-        protected string LoginId = "";
-        protected string TransactionKey = "";
-
-        [Fact]
-        public void Authentication()
+        [Theory]
+        [InlineData("", "")]
+        public void Authentication(string LoginId, string TransactionKey)
         {
             var merchantAuthentication = new MerchantAuthentication()
             {
-                LoginId = "",
-                TransactionKey = ""
+                LoginId = LoginId,
+                TransactionKey = TransactionKey
             };
 
-            AuthorizeNetClient client = new AuthorizeNetClient(merchantAuthentication, true);
+            AuthorizeNetClient client = new AuthorizeNetClient(merchantAuthentication, isTestMode: true);
 
-            var result = client.TestAuthentication();
+            var result = client.TestAuthentication().Result;
 
             Assert.True(!string.IsNullOrEmpty(result));
         }

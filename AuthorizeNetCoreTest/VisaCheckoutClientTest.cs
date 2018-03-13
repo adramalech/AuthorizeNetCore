@@ -4,7 +4,7 @@ using Xunit;
 
 namespace AuthorizeNetCoreTest
 {
-    public class VisaCheckoutClientTest : AuthorizeNetClientTest
+    public class VisaCheckoutClientTest
     {
     }
 }
