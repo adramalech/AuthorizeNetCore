@@ -13,7 +13,7 @@ namespace AuthorizeNetCore
     public class AuthorizeNetClient
     {
         //constants.
-        private const string _sandboxApiEndpoint = @"https://apitest.authroize.net/xml/v1/request.api";
+        private const string _sandboxApiEndpoint = @"https://apitest.authorize.net/xml/v1/request.api";
         private const string _productionApiEndpoint = @"https://api.authorize.net/xml/v1/request.api";
 
         protected readonly MerchantAuthentication merchantAuthentication;
@@ -33,13 +33,18 @@ namespace AuthorizeNetCore
 
         public async Task<AuthenticationTestResponse> TestAuthentication()
         {
-            var content = new StringContent(content: JsonConvert.SerializeObject(merchantAuthentication), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
+            try {
+                var content = new StringContent(content: JsonConvert.SerializeObject(merchantAuthentication), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
 
-            var response = await this.httpClient.PostAsync(this.baseUrl, content);
+                var response = await this.httpClient.PostAsync(this.baseUrl, content);
 
-            var json = await response.Content.ReadAsStringAsync();
+                var json = await response.Content.ReadAsStringAsync();
 
-            return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticationTestResponse>(json) : null;
+                return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticationTestResponse>(json) : null;
+            }
+            catch (Exception) {
+                return null;
+            }
         }
 
         protected bool ValidateJson(string json) {
