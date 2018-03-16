@@ -31,7 +31,7 @@ namespace AuthorizeNetCore
             this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<AuthenticationTestResponse> TestAuthentication()
+        public async Task<AuthenticateTestResponse> TestAuthentication()
         {
             try {
                 var content = new StringContent(content: JsonConvert.SerializeObject(merchantAuthentication), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
@@ -40,7 +40,7 @@ namespace AuthorizeNetCore
 
                 var json = await response.Content.ReadAsStringAsync();
 
-                return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticationTestResponse>(json) : null;
+                return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticateTestResponse>(json) : null;
             }
             catch (Exception) {
                 return null;
@@ -49,7 +49,7 @@ namespace AuthorizeNetCore
 
         protected bool ValidateJson(string json) {
             try {
-                JToken.Parse(json);
+                var jsonParsedResult = JToken.Parse(json);
                 return true;
             }
             catch (Exception) {

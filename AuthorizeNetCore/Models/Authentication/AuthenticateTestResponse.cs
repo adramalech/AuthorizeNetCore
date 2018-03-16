@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace AuthorizeNetCore.Models.Authentication
 {
-    public class AuthenticationTestResponse
+    public class AuthenticateTestResponse
     {
         [JsonProperty(PropertyName = "refId")]
         public string RefId { get; set; }
