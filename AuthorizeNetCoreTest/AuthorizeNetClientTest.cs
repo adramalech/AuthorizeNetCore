@@ -9,22 +9,19 @@ namespace AuthorizeNetCoreTest
     {
         [Theory]
         [InlineData("", "")]
-        public void Authentication(string LoginId, string TransactionKey)
+        public void Authentication(string loginId, string transactionKey)
         {
             var merchantAuthentication = new MerchantAuthentication()
             {
-                LoginId = LoginId,
-                TransactionKey = TransactionKey
+                LoginId = loginId,
+                TransactionKey = transactionKey
             };
 
             AuthorizeNetClient client = new AuthorizeNetClient(merchantAuthentication, isTestMode: true);
 
             var result = client.TestAuthentication().Result;
 
-            Assert.True(
-                result != null && result.Messages != null && result.Messages.Message != null &&
-                !string.IsNullOrEmpty(result.Messages.ResultCode) && result.Messages.ResultCode == "Ok" && !string.IsNullOrEmpty(result.Messages.Message.Code)
-            );
+            Assert.True(result?.Messages?.Message != null && !string.IsNullOrEmpty(result.Messages.ResultCode) && result.Messages.ResultCode == "Ok");
         }
     }
 }

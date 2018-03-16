@@ -8,6 +8,6 @@ namespace AuthorizeNetCore.Models
         public string ResultCode { get; set; }
         
         [JsonProperty(PropertyName = "message")]
-        public Message Message { get; set; }
+        public Message[] Message { get; set; }
     }
 }

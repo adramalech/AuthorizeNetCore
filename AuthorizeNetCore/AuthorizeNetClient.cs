@@ -34,7 +34,12 @@ namespace AuthorizeNetCore
         public async Task<AuthenticateTestResponse> TestAuthentication()
         {
             try {
-                var content = new StringContent(content: JsonConvert.SerializeObject(merchantAuthentication), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
+                var authenticateTestRequest = new AuthenticateTestRequest()
+                {
+                    MerchantAuthentication = merchantAuthentication
+                };
+
+                var content = new StringContent(content: JsonConvert.SerializeObject(new { authenticateTestRequest }), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
 
                 var response = await this.httpClient.PostAsync(this.baseUrl, content);
 
@@ -42,7 +47,7 @@ namespace AuthorizeNetCore
 
                 return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticateTestResponse>(json) : null;
             }
-            catch (Exception) {
+            catch (Exception ex) {
                 return null;
             }
         }
@@ -52,7 +57,7 @@ namespace AuthorizeNetCore
                 var jsonParsedResult = JToken.Parse(json);
                 return true;
             }
-            catch (Exception) {
+            catch (Exception ex) {
                 return false;
             }
         }
