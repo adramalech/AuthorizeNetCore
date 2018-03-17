@@ -12,12 +12,27 @@ namespace AuthorizeNetCore.Models.PaymenTransactions
 
         [JsonProperty(PropertyName = "payment")]
         public Payment Payment { get; set; }
+        
+        [JsonProperty(PropertyName = "tax")]
+        public Tax Tax { get; set; }
 
-        [JsonProperty(PropertyName = "callId")]
-        public string CallId { get; set; }
+        [JsonProperty(PropertyName = "duty")]
+        public Duty Duty { get; set; }
 
-        [JsonProperty(PropertyName = "lineItems")]
-        public LineItems LineItems { get; set; }
+        [JsonProperty(PropertyName = "shipping")]
+        public Shipping Shipping { get; set; }
+
+        [JsonProperty(PropertyName = "poNumber")]
+        public string PoNumber { get; set; }
+
+        [JsonProperty(PropertyName = "customer")]
+        public Customer Customer { get; set; }
+
+        [JsonProperty(PropertyName = "billTo")]
+        public CustomerContact BillTo { get; set; }
+
+        [JsonProperty(PropertyName = "shipTo")]
+        public CustomerContact ShipTo { get; set; }
 
         [JsonProperty(PropertyName = "customerIP")]
         public string CustomerIP { get; set; }
