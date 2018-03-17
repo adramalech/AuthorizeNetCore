@@ -37,6 +37,12 @@ namespace AuthorizeNetCore.Models.PaymenTransactions
         [JsonProperty(PropertyName = "messages")]
         public TransactionResponseMessages[] Messages { get; set; }
 
+        /// <summary>
+        /// Contains one or more errors.
+        /// </summary>
+        [JsonProperty(PropertyName = "errors")]
+        public Errors Errors { get; set; }
+
         [JsonProperty(PropertyName = "userFields")]
         public UserField[] UserFields { get; set; }
     }
