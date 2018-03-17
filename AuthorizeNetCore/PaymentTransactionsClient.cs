@@ -1,5 +1,6 @@
 ﻿using AuthorizeNetCore.Models;
 using AuthorizeNetCore.Models.Authentication;
+using AuthorizeNetCore.Models.PaymenTransactions;
 
 namespace AuthorizeNetCore
 {
