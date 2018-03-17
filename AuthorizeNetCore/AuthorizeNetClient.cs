@@ -33,23 +33,22 @@ namespace AuthorizeNetCore
 
         public async Task<AuthenticateTestResponse> TestAuthentication()
         {
-            try {
-                var authenticateTestRequest = new AuthenticateTestRequest()
-                {
-                    MerchantAuthentication = merchantAuthentication
-                };
+            var authenticateTestRequest = new AuthenticateTestRequest()
+            {
+                MerchantAuthentication = merchantAuthentication
+            };
 
-                var content = new StringContent(content: JsonConvert.SerializeObject(new { authenticateTestRequest }), encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
+            var content = new StringContent(
+                content: JsonConvert.SerializeObject(new { authenticateTestRequest }), 
+                encoding: System.Text.Encoding.UTF8, 
+                mediaType: "application/json"
+            );
 
-                var response = await this.httpClient.PostAsync(this.baseUrl, content);
+            var response = await this.httpClient.PostAsync(this.baseUrl, content);
 
-                var json = await response.Content.ReadAsStringAsync();
+            var json = await response.Content.ReadAsStringAsync();
 
-                return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticateTestResponse>(json) : null;
-            }
-            catch (Exception ex) {
-                return null;
-            }
+            return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticateTestResponse>(json) : null;
         }
 
         protected bool ValidateJson(string json) {
