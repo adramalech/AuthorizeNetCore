@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AuthorizeNetCore.Models.PaymenTransactions
+namespace AuthorizeNetCore.Models.PaymentTransactions
 {
     public class CreditCard
     {

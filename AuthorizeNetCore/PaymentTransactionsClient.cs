@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 using AuthorizeNetCore.Models;
-using AuthorizeNetCore.Models.PaymenTransactions;
+using AuthorizeNetCore.Models.PaymentTransactions;
 using Newtonsoft.Json;
 
 namespace AuthorizeNetCore

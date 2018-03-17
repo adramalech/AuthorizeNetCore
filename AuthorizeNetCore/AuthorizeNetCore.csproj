@@ -17,6 +17,6 @@
     <Folder Include="Models\TransactionReporting\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Models\PaymenTransactions\ChargeCreditCardRequest.cs" />
+    <Compile Remove="Models\PaymentTransactions\ChargeCreditCardRequest.cs" />
   </ItemGroup>
 </Project>

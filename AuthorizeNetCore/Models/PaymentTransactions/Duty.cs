@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace AuthorizeNetCore.Models.PaymenTransactions
+namespace AuthorizeNetCore.Models.PaymentTransactions
 {
-    public class Tax
+    public class Duty
     {
         [JsonProperty(PropertyName = "amount")]
         public string Amount { get; set; }
