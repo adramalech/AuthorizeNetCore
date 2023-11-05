@@ -5,7 +5,7 @@ namespace AuthorizeNetCore
 {
     public class PayPalExpressCheckoutClient : AuthorizeNetClient
     {
-        public PayPalExpressCheckoutClient(MerchantAuthentication merchantAuthentication, bool isTestMode, int retryCount = 3) : base(merchantAuthentication, isTestMode, retryCount)
+        public PayPalExpressCheckoutClient(MerchantAuthentication merchantAuthentication, bool isTestMode) : base(merchantAuthentication, isTestMode)
         {
         }
 

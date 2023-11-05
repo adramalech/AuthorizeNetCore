@@ -5,7 +5,7 @@ namespace AuthorizeNetCore
 {
     public class RecurringBillingClient : AuthorizeNetClient
     {
-        public RecurringBillingClient(MerchantAuthentication merchantAuthentication, bool isTestMode, int retryCount = 3) : base(merchantAuthentication, isTestMode, retryCount)
+        public RecurringBillingClient(MerchantAuthentication merchantAuthentication, bool isTestMode) : base(merchantAuthentication, isTestMode)
         {
         }
 

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using AuthorizeNetCore.Models;
 using AuthorizeNetCore.Models.Authentication;
-using AuthorizeNetCore.Utils;
 using System.Text.Json;
 
 namespace AuthorizeNetCore
@@ -19,13 +18,13 @@ namespace AuthorizeNetCore
         protected readonly string baseUrl;
         protected HttpClient httpClient;
 
-        public AuthorizeNetClient(MerchantAuthentication merchantAuthentication, bool isTestMode, int retryCount = 3)
+        public AuthorizeNetClient(MerchantAuthentication merchantAuthentication, bool isTestMode)
         {
             this.merchantAuthentication = merchantAuthentication;
 
             this.baseUrl = (isTestMode) ? _sandboxApiEndpoint : _productionApiEndpoint;
 
-            this.httpClient = new HttpClient(new RetryMessageHandler(retryCount));
+            this.httpClient = new HttpClient();
 
             this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

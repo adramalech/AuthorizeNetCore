@@ -16,7 +16,6 @@
     <Compile Remove="Models\PaymentTransactions\ChargeCreditCardRequest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Polly" Version="8.1.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.3" />
   </ItemGroup>
 </Project>
