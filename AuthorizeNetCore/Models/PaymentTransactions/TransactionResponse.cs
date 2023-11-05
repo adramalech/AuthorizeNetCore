@@ -1,49 +1,49 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
     public class TransactionResponse
     {
-        [JsonProperty(PropertyName = "responseCode")]
+        [JsonPropertyName("responseCode")]
         public string ResponseCode { get; set; }
 
-        [JsonProperty(PropertyName = "authCode")]
+        [JsonPropertyName("authCode")]
         public string AuthCode { get; set; }
 
-        [JsonProperty(PropertyName = "avsResultCode")]
+        [JsonPropertyName("avsResultCode")]
         public string AVSResultCode { get; set; }
 
-        [JsonProperty(PropertyName = "cvvResultCode")]
+        [JsonPropertyName("cvvResultCode")]
         public string CVVResultCode { get; set; }
 
-        [JsonProperty(PropertyName = "cavvResultCode")]
+        [JsonPropertyName("cavvResultCode")]
         public string CAVVResultCode { get; set; }
 
-        [JsonProperty(PropertyName = "transId")]
+        [JsonPropertyName("transId")]
         public string TransId { get; set; }
 
-        [JsonProperty(PropertyName = "refTransID")]
+        [JsonPropertyName("refTransID")]
         public string RefTransID { get; set; }
 
-        [JsonProperty(PropertyName = "transHash")]
+        [JsonPropertyName("transHash")]
         public string TransHash { get; set; }
 
-        [JsonProperty(PropertyName = "accountNumber")]
+        [JsonPropertyName("accountNumber")]
         public string AccountNumber { get; set; }
 
-        [JsonProperty(PropertyName = "accountType")]
+        [JsonPropertyName("accountType")]
         public string AccountType { get; set; }
 
-        [JsonProperty(PropertyName = "messages")]
+        [JsonPropertyName("messages")]
         public TransactionResponseMessages[] Messages { get; set; }
 
         /// <summary>
         /// Contains one or more errors.
         /// </summary>
-        [JsonProperty(PropertyName = "errors")]
+        [JsonPropertyName("errors")]
         public Errors Errors { get; set; }
 
-        [JsonProperty(PropertyName = "userFields")]
+        [JsonPropertyName("userFields")]
         public UserField[] UserFields { get; set; }
     }
 }

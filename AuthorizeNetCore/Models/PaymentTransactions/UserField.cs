@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Name of the user-defined field.
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Value of the user-defined field.
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using AuthorizeNetCore.Models;
 using AuthorizeNetCore.Models.PaymentTransactions;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace AuthorizeNetCore
 {
@@ -22,7 +22,7 @@ namespace AuthorizeNetCore
             };
             
             var content = new StringContent(
-                content: JsonConvert.SerializeObject(new { createTransactionRequest }),
+                content: JsonSerializer.Serialize(new { createTransactionRequest }),
                 encoding: System.Text.Encoding.UTF8,
                 mediaType: "application/json"
             );
@@ -31,7 +31,7 @@ namespace AuthorizeNetCore
 
             var json = await response.Content.ReadAsStringAsync();
 
-            return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<CreateTransactionResponse>(json) : null;
+            return (!string.IsNullOrEmpty(json)) ? JsonSerializer.Deserialize<CreateTransactionResponse>(json) : null;
         }
 
     }

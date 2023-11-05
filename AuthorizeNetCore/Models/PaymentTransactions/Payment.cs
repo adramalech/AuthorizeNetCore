@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -8,7 +8,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// Contains human-readable information from the customer's card.
         /// Applies to Card Not Present transactions only.
         /// </summary>
-        [JsonProperty(PropertyName = "creditCard")]
+        [JsonPropertyName("creditCard")]
         public CreditCard CreditCard { get; set; }
     }
 }

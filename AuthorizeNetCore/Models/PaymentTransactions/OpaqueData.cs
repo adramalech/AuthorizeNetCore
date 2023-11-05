@@ -1,16 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
     public class OpaqueData
     {
-        [JsonProperty(PropertyName = "dataDescriptor")]
+        [JsonPropertyName("dataDescriptor")]
         public string DataDescriptor
         {
             get { return "COMMON.ACCEPT.INAPP.PAYMENT"; }
         }
 
-        [JsonProperty(PropertyName = "dataValue")]
+        [JsonPropertyName("dataValue")]
         public string NonceValue { get; set; }
     }
 }

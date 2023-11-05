@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -10,7 +10,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// If set to true, a customer profile and payment profile 
         /// will be generated from the customer and payment data.
         /// </summary>
-        [JsonProperty(PropertyName = "createProfile")]
+        [JsonPropertyName("createProfile")]
         public bool CreateProfile { get; set; }
     }
 }

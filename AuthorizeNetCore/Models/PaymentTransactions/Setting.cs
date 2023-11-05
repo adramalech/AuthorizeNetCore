@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Name of a specific setting to be modified for this transaction.
         /// </summary>
-        [JsonProperty(PropertyName = "settingName")]
+        [JsonPropertyName("settingName")]
         public string SettingName { get; set; }
 
         /// <summary>
         /// Indicates whether the specified setting is enabled or disabled.
         /// </summary>
-        [JsonProperty(PropertyName = "settingValue")]
+        [JsonPropertyName("settingValue")]
         public string SettingValue { get; set; }
     }
 }

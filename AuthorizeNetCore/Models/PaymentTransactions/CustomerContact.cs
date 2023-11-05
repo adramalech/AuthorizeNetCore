@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,49 +7,49 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// First name associated with customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "firstName")]
+        [JsonPropertyName("firstName")]
         public string FirstName { get; set; }
 
         /// <summary>
         ///  Last name associated with customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "lastName")]
+        [JsonPropertyName("lastName")]
         public string LastName { get; set; }
 
         /// <summary>
         /// Company associatedd with customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "company")]
+        [JsonPropertyName("company")]
         public string Company { get; set; }
 
         /// <summary>
         /// Customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "address")]
+        [JsonPropertyName("address")]
         public string Address { get; set; }
 
         /// <summary>
         /// City of customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "city")]
+        [JsonPropertyName("city")]
         public string City { get; set; }
 
         /// <summary>
         /// State of customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "state")]
+        [JsonPropertyName("state")]
         public string State { get; set; }
 
         /// <summary>
         /// The postal code of customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "zip")]
+        [JsonPropertyName("zip")]
         public string Zip { get; set; }
 
         /// <summary>
         /// Country of customer's address.
         /// </summary>
-        [JsonProperty(PropertyName = "country")]
+        [JsonPropertyName("country")]
         public string Country { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace AuthorizeNetCore.Utils
 
                 //this will wait 5 seconds on first retry, 20 seconds on second, and 45 seconds on third, 
                 //80 seconds on fourth, 125 seconds on fifth, etc.. etc..
-                Thread.Sleep(_retryCount^2 * 5000);
+                await Task.Delay(_retryCount^2 * 5000);
             }
 
             //if still timing out after retry count has been met return timeout response.

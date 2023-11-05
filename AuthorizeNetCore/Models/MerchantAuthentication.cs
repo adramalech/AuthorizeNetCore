@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models
         /// <summary>
         /// Merchant's unique API Login ID.
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
+        [JsonPropertyName("name")]
         public string LoginId { get; set; }
 
         /// <summary>
         /// Merchant's unique Transaction Key.
         /// </summary>
-        [JsonProperty(PropertyName = "transactionKey")]
+        [JsonPropertyName("transactionKey")]
         public string TransactionKey { get; set; }
     }
 }

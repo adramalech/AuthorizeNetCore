@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Amount of the surcharge.
         /// </summary>
-        [JsonProperty(PropertyName = "amount")]
+        [JsonPropertyName("amount")]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Describes the reason or details for the surcharge.
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
     }
 }

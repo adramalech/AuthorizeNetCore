@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Error code returned.
         /// </summary>
-        [JsonProperty(PropertyName = "errorCode")]
+        [JsonPropertyName("errorCode")]
         public string ErrorCode { get; set; }
 
         /// <summary>
         /// Text description of error.
         /// </summary>
-        [JsonProperty(PropertyName = "errorText")]
+        [JsonPropertyName("errorText")]
         public string ErrorText { get; set; }
     }
 }

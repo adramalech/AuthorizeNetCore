@@ -1,22 +1,22 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
     public class LineItem
     {
-        [JsonProperty(PropertyName = "itemId")]
+        [JsonPropertyName("itemId")]
         public string ItemId { get; set; }
 
-        [JsonProperty(PropertyName = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty(PropertyName = "quantity")]
+        [JsonPropertyName("quantity")]
         public string Quantity { get; set; }
 
-        [JsonProperty(PropertyName = "unitPrice")]
+        [JsonPropertyName("unitPrice")]
         public string UnitPrice { get; set; }
     }
 }

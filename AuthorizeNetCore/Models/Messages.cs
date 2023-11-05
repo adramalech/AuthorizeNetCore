@@ -1,13 +1,13 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models
 {
     public class Messages
     {
-        [JsonProperty(PropertyName = "resultCode")]
+        [JsonPropertyName("resultCode")]
         public string ResultCode { get; set; }
         
-        [JsonProperty(PropertyName = "message")]
+        [JsonPropertyName("message")]
         public Message[] Message { get; set; }
     }
 }

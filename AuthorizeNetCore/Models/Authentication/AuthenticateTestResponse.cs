@@ -1,13 +1,13 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.Authentication
 {
     public class AuthenticateTestResponse
     {
-        [JsonProperty(PropertyName = "refId")]
+        [JsonPropertyName("refId")]
         public string RefId { get; set; }
 
-        [JsonProperty(PropertyName = "messages")]
+        [JsonPropertyName("messages")]
         public Messages Messages { get; set; }
     }
 }

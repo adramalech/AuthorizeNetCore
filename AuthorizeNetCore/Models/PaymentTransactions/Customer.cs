@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Type of customer.  Either "individual" or "business".
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
         /// <summary>
         /// The unique customer ID used to represent the customer associated with the transaction.
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// 
         /// Required only when using a European payment procesesor.
         /// </summary>
-        [JsonProperty(PropertyName = "email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
     }
 }

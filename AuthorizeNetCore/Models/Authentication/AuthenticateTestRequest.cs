@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.Authentication
 {
     public class AuthenticateTestRequest
     {
-        [JsonProperty(PropertyName = "merchantAuthentication")]
+        [JsonPropertyName( "merchantAuthentication")]
         public MerchantAuthentication MerchantAuthentication { get; set; }
     }
 }

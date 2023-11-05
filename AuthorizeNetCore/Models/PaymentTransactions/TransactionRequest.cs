@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,32 +7,32 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Type of credit card transaction.
         /// </summary>
-        [JsonProperty(PropertyName = "transactionType")]
+        [JsonPropertyName("transactionType")]
         public string TransactionType { get; set; }
 
         /// <summary>
         /// Amount of this transaction.  This is the total amount and must include tax,
         /// shipping, tips, and any other charges.
         /// </summary>
-        [JsonProperty(PropertyName = "amount")]
+        [JsonPropertyName("amount")]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Contains payment information.
         /// </summary>
-        [JsonProperty(PropertyName = "payment")]
+        [JsonPropertyName("payment")]
         public Payment Payment { get; set; }
         
         /// <summary>
         /// If enabled will create a customer profile from the data sent to make the transaction.
         /// </summary>
-        [JsonProperty(PropertyName = "profile")]
+        [JsonPropertyName("profile")]
         public CustomerProfile Profile { get; set; }
 
         /// <summary>
         /// Contains information about the software that generated the transaction.
         /// </summary>
-        [JsonProperty(PropertyName = "solution")]
+        [JsonPropertyName("solution")]
         public PartnerSolution Solution { get; set; }
 
         /// <summary>
@@ -40,80 +40,80 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// 
         /// Do not use your processor's terminal ID for this field.
         /// </summary>
-        [JsonProperty(PropertyName = "terminalNumber")]
+        [JsonPropertyName("terminalNumber")]
         public string TerminalNumber { get; set; }
 
         /// <summary>
         /// Contains information about the order.
         /// </summary>
-        [JsonProperty(PropertyName = "order")]
+        [JsonPropertyName("order")]
         public Order Order { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "tax")]
+        [JsonPropertyName("tax")]
         public Tax Tax { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "duty")]
+        [JsonPropertyName("duty")]
         public Duty Duty { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "shipping")]
+        [JsonPropertyName("shipping")]
         public Shipping Shipping { get; set; }
 
         /// <summary>
         /// The merchant-assigned pruchase order number.
         /// </summary>
-        [JsonProperty(PropertyName = "poNumber")]
+        [JsonPropertyName("poNumber")]
         public string PurchaseOrderNumber { get; set; }
 
         /// <summary>
         /// The customer information.
         /// </summary>
-        [JsonProperty(PropertyName = "customer")]
+        [JsonPropertyName("customer")]
         public Customer Customer { get; set; }
 
         /// <summary>
         /// The billing address information.
         /// </summary>
-        [JsonProperty(PropertyName = "billTo")]
+        [JsonPropertyName("billTo")]
         public CustomerContact BillTo { get; set; }
 
         /// <summary>
         /// The shipping address information.
         /// </summary>
-        [JsonProperty(PropertyName = "shipTo")]
+        [JsonPropertyName("shipTo")]
         public CustomerContact ShipTo { get; set; }
 
         /// <summary>
         /// The IPv4 address of the customer initiating the transaction. 
         /// Defaults to 255.255.255.255 if not included in your request.
         /// </summary>
-        [JsonProperty(PropertyName = "customerIP")]
+        [JsonPropertyName("customerIP")]
         public string CustomerIP { get; set; }
 
         /// <summary>
         /// Contains retail information.
         /// </summary>
-        [JsonProperty(PropertyName = "retail")]
+        [JsonPropertyName("retail")]
         public Retail Retail { get; set; }
 
         /// <summary>
         /// Merchant-assigned employee ID.
         /// </summary>
-        [JsonProperty(PropertyName = "employeeId")]
+        [JsonPropertyName("employeeId")]
         public string EmployeeId { get; set; }
 
         /// <summary>
         /// Contains one or more transaction setting.
         /// </summary>
-        [JsonProperty(PropertyName = "transactionSettings")]
+        [JsonPropertyName("transactionSettings")]
         public TransactionSettings TransactionSettings { get; set; }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// receive these elements in the response, exactly as it was
         /// submitted in the request.
         /// </summary>
-        [JsonProperty(PropertyName = "userFields")]
+        [JsonPropertyName("userFields")]
         public UserFields UserFields { get; set; }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// 
         /// Current supported for TSYS merchants.
         /// </summary>
-        [JsonProperty(PropertyName = "surcharge")]
+        [JsonPropertyName("surcharge")]
         public Surcharge Surcharge { get; set; }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// 
         /// Currently supported for TSYS merchants.
         /// </summary>
-        [JsonProperty(PropertyName = "merchantDescriptor")]
+        [JsonPropertyName("merchantDescriptor")]
         public string MerchantDescriptor { get; set; }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// 
         /// The total transaction amount must include this value.
         /// </summary>
-        [JsonProperty(PropertyName = "tip")]
+        [JsonPropertyName("tip")]
         public decimal Tip { get; set; }
     }
 }

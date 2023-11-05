@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,13 +7,13 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Merchant-defined invoice number.
         /// </summary>
-        [JsonProperty(PropertyName = "invoiceNumber")]
+        [JsonPropertyName("invoiceNumber")]
         public string InvoiceNumber { get; set; }
 
         /// <summary>
         /// Description of the item purchased.
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
     }
 }

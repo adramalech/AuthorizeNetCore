@@ -5,8 +5,7 @@ using System.Net.Http.Headers;
 using AuthorizeNetCore.Models;
 using AuthorizeNetCore.Models.Authentication;
 using AuthorizeNetCore.Utils;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 
 namespace AuthorizeNetCore
 {
@@ -39,7 +38,7 @@ namespace AuthorizeNetCore
             };
 
             var content = new StringContent(
-                content: JsonConvert.SerializeObject(new { authenticateTestRequest }), 
+                content: JsonSerializer.Serialize(new { authenticateTestRequest }), 
                 encoding: System.Text.Encoding.UTF8, 
                 mediaType: "application/json"
             );
@@ -48,17 +47,7 @@ namespace AuthorizeNetCore
 
             var json = await response.Content.ReadAsStringAsync();
 
-            return (!string.IsNullOrEmpty(json) && ValidateJson(json)) ? JsonConvert.DeserializeObject<AuthenticateTestResponse>(json) : null;
-        }
-
-        protected bool ValidateJson(string json) {
-            try {
-                var jsonParsedResult = JToken.Parse(json);
-                return true;
-            }
-            catch (Exception ex) {
-                return false;
-            }
+            return (!string.IsNullOrEmpty(json)) ? JsonSerializer.Deserialize<AuthenticateTestResponse>(json) : null;
         }
     }
 }

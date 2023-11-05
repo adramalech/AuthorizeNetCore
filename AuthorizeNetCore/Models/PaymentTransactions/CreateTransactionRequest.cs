@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AuthorizeNetCore.Models.PaymentTransactions
 {
@@ -7,19 +7,19 @@ namespace AuthorizeNetCore.Models.PaymentTransactions
         /// <summary>
         /// Contains merchant authentication information.
         /// </summary>
-        [JsonProperty(PropertyName = "merchantAuthentication")]
+        [JsonPropertyName("merchantAuthentication")]
         public MerchantAuthentication MerchantAuthentication { get; set; }
 
         /// <summary>
         /// Merchant-assigned reference ID for the request.
         /// </summary>
-        [JsonProperty(PropertyName = "refId")]
+        [JsonPropertyName("refId")]
         public string RefId { get; set; }
 
         /// <summary>
         /// This element is a container for transaction specific information.
         /// </summary>
-        [JsonProperty(PropertyName = "transactionRequest")]
+        [JsonPropertyName("transactionRequest")]
         public TransactionRequest TransactionRequest { get; set; }
     }
 }
